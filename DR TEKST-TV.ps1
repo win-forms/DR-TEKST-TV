@@ -229,19 +229,7 @@ $day = (Get-Date -Format "dddd").Substring(0,3)
 $date = Get-Date -Format "dd"
 $month = Get-Date -Format "MMM"
 $time = Get-Date -Format "HH:mm:ss"
-$TV_TextBox.Text = "        DR   S" + $p.page_number + "  " + $day + " " + $date + " " + $month + "   " + $time + "
-
-
-
-
-
-
-
-
-
-
- Denne side er desværre ikke tilgængelig"
-
+$TV_TextBox.Text = ("        DR   S$($p.page_number)  $day $date $month   $time`n`n`n`n`n`n`n`n`n`n`n Denne side er desværre ikke tilgængelig").Replace('"', ' ') #Replace if the page is 1-99 there will be a ", so replace it with space
 }
 
 #region - Page
