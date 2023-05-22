@@ -5,6 +5,11 @@
 [reflection.assembly]::LoadWithPartialName("System.Globalization") | Out-Null
 [System.Windows.Forms.Application]::EnableVisualStyles()
 
+[Net.ServicePointManager]::SecurityProtocol = 
+    [Net.SecurityProtocolType]::Tls12 -bor `
+    [Net.SecurityProtocolType]::Tls11 -bor `
+    [Net.SecurityProtocolType]::Tls
+
 #region - global variables
 $ScriptPath = Split-Path -Parent -Path $MyInvocation.MyCommand.Definition
 Import-Module -Force "$ScriptPath\Modules\Hide-Console.ps1"
